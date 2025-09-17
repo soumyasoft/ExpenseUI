@@ -16,11 +16,13 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     try {
       const res = await axios.post("/api/users/login", formData);
+      console.log(res);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
       setUser(res.data);
       navigate("/dashboard");
     } catch (err) {
+      console.log(err);
       setError(err.response?.data?.message || "Login failed");
     }
   };
