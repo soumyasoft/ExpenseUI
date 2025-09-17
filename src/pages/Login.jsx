@@ -8,6 +8,8 @@ const Login = ({ setUser }) => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const APP_URL = "https://expenseapi-odu8.onrender.com";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -15,7 +17,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/users/login", formData);
+      const res = await axios.post(APP_URL+"/api/users/login", formData);
       console.log(res);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
