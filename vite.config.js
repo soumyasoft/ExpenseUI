@@ -11,7 +11,9 @@ export default defineConfig({
       strict: false,
     },
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api':{
+        target: 'https://expenseapi-odu8.onrender.com'
+      },
     },
   },
 })
