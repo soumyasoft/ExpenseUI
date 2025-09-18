@@ -11,7 +11,13 @@ export default defineConfig({
       strict: false,
     },
     proxy: {
-      '/api': 'https://expenseapi-odu8.onrender.com',
+      '/api': {
+        target: 'https://expenseapi-odu8.onrender.com',
+        changeOrigin: true,
+        secure: true,
+        // Optionally rewrite the paths:
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      },
     },
   },
 })
