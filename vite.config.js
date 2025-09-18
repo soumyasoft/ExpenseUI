@@ -6,10 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    host: '0.0.0.0',
-    fs: {
-      strict: false,
-    },
+   
     proxy: {
       '/api': {
         target: 'https://expenseapi-odu8.onrender.com',
